@@ -1,0 +1,87 @@
+{
+  "date": "2026-11-12",
+  "image": "data/my_table.jpg",
+  "mode": "color",
+  "objects": [
+    {
+      "center_xy": [
+        2579.4,
+        601.18
+      ],
+      "angle_deg": 51.4,
+      "long_len_px": 744.03,
+      "short_len_px": 738.67,
+      "area_px": 285249
+    },
+    {
+      "center_xy": [
+        2755.52,
+        306.01
+      ],
+      "angle_deg": 30.75,
+      "long_len_px": 54.38,
+      "short_len_px": 38.42,
+      "area_px": 1666
+    },
+    {
+      "center_xy": [
+        2821.85,
+        1857.87
+      ],
+      "angle_deg": -62.16,
+      "long_len_px": 898.57,
+      "short_len_px": 692.91,
+      "area_px": 392342
+    },
+    {
+      "center_xy": [
+        2895.62,
+        224.4
+      ],
+      "angle_deg": 65.34,
+      "long_len_px": 151.25,
+      "short_len_px": 66.98,
+      "area_px": 3910
+    },
+    {
+      "center_xy": [
+        3168.76,
+        1853.55
+      ],
+      "angle_deg": -38.03,
+      "long_len_px": 30.61,
+      "short_len_px": 30.98,
+      "area_px": 671
+    },
+    {
+      "center_xy": [
+        3172.83,
+        2038.05
+      ],
+      "angle_deg": -3.37,
+      "long_len_px": 44.75,
+      "short_len_px": 32.06,
+      "area_px": 849
+    },
+    {
+      "center_xy": [
+        3174.21,
+        1994.07
+      ],
+      "angle_deg": -36.6,
+      "long_len_px": 91.21,
+      "short_len_px": 18.58,
+      "area_px": 795
+    },
+    {
+      "center_xy": [
+        3237.42,
+        1993.02
+      ],
+      "angle_deg": 71.68,
+      "long_len_px": 49.02,
+      "short_len_px": 36.05,
+      "area_px": 1049
+    }
+  ]
+}
