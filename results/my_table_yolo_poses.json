@@ -1,0 +1,25 @@
+{
+  "date": "2026-11-12",
+  "image": "data/my_table.jpg",
+  "mode": "yolo",
+  "objects": [
+    {
+      "label": "mouse",
+      "confidence": 0.948,
+      "box_xyxy": [
+        577,
+        875,
+        1972,
+        2644
+      ],
+      "center_xy": [
+        1244.05,
+        1730.17
+      ],
+      "angle_deg": -67.16,
+      "long_len_px": 1812.8,
+      "short_len_px": 1104.04,
+      "area_px": 1729025
+    }
+  ]
+}

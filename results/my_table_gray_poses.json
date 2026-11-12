@@ -1,0 +1,117 @@
+{
+  "date": "2026-11-12",
+  "image": "data/my_table.jpg",
+  "mode": "gray",
+  "objects": [
+    {
+      "center_xy": [
+        239.97,
+        1277.91
+      ],
+      "angle_deg": -89.68,
+      "long_len_px": 2582.84,
+      "short_len_px": 552.84,
+      "area_px": 1089746
+    },
+    {
+      "center_xy": [
+        721.25,
+        1243.41
+      ],
+      "angle_deg": 52.23,
+      "long_len_px": 36.32,
+      "short_len_px": 21.52,
+      "area_px": 584
+    },
+    {
+      "center_xy": [
+        1225.78,
+        1737.68
+      ],
+      "angle_deg": -65.36,
+      "long_len_px": 1804.35,
+      "short_len_px": 1222.73,
+      "area_px": 1855579
+    },
+    {
+      "center_xy": [
+        2268.64,
+        704.17
+      ],
+      "angle_deg": 57.31,
+      "long_len_px": 627.81,
+      "short_len_px": 348.62,
+      "area_px": 108902
+    },
+    {
+      "center_xy": [
+        2508.27,
+        212.84
+      ],
+      "angle_deg": -60.73,
+      "long_len_px": 124.84,
+      "short_len_px": 24.8,
+      "area_px": 1790
+    },
+    {
+      "center_xy": [
+        2564.31,
+        1761.53
+      ],
+      "angle_deg": -58.91,
+      "long_len_px": 919.97,
+      "short_len_px": 359.98,
+      "area_px": 118255
+    },
+    {
+      "center_xy": [
+        2650.45,
+        1953.24
+      ],
+      "angle_deg": 67.45,
+      "long_len_px": 40.08,
+      "short_len_px": 32.92,
+      "area_px": 1001
+    },
+    {
+      "center_xy": [
+        2738.64,
+        1926.65
+      ],
+      "angle_deg": 36.21,
+      "long_len_px": 98.16,
+      "short_len_px": 32.23,
+      "area_px": 2123
+    },
+    {
+      "center_xy": [
+        2753.32,
+        2031.18
+      ],
+      "angle_deg": 46.63,
+      "long_len_px": 38.21,
+      "short_len_px": 35.5,
+      "area_px": 1041
+    },
+    {
+      "center_xy": [
+        3173.61,
+        1690.4
+      ],
+      "angle_deg": 56.62,
+      "long_len_px": 188.48,
+      "short_len_px": 139.69,
+      "area_px": 20626
+    },
+    {
+      "center_xy": [
+        4084.18,
+        231.68
+      ],
+      "angle_deg": -88.71,
+      "long_len_px": 119.17,
+      "short_len_px": 27.71,
+      "area_px": 2566
+    }
+  ]
+}
