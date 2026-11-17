@@ -1,0 +1,86 @@
+﻿===== STREAM 0 =====
+Hybrid Quantum Classical CNN for Image Segmentation Boston Dynamics - AI and Robotics Track 1: Object Pose Estimation Team 2: Kangmin Ha, WangZhenqi, YeShengqing
+
+===== STREAM 6 =====
+Contents Introduction Methods Results Analysis Discussion
+
+===== STREAM 15 =====
+Introduction Abstract Background Research Methods
+
+===== STREAM 17 =====
+Introduction The basic pipeline extracts the point cloud for each object from the segmentation output as in the existing work, and then estimates the 6D pose by ICP - based matching. However, the problem is that the reliability of the segmentation stage determines the overall pipeline quality. Therefore, we propose a hybrid quantum - classical structure that reduces the false positive by trialing the mask around each patch using the candidate mask obtained with Classical Convolutional Neural Network and enhanced by Quantum Convolutional Neural Network. It is expected to be combined with classical hardware in the current generation of quantum hardware to improve segmentation classification quality. Abstract
+
+===== STREAM 18 =====
+Introduction Backgrounds 1. Classical CNN Method Convolutional Neural Network Controlling weights 2. QCNN Layer Quantum Circuit Endcoding Parametrized Quantum Circuit 3. Application QCNN layer for segmentation Long, C., Huang, M., Ye, X., Futamura, Y., & Sakurai, T. (2025). Hybrid quantum - classical - quantum convolutional neural networks . Scientific Reports, 15 , 31780. https://doi.org/10.1038/s41598 - 025 - 13417 - 1
+
+===== STREAM 24 =====
+1. Classical Models Introduction Research Methods 1. QCNN Hybrid Model YOLO model U - Net CNN model QCNN Layer on classification, but also on segmentation
+
+===== STREAM 29 =====
+Methods Outline Review of Existing Classical Models Review of YOLO & U - Net CNN Comparison Milestone for CNN Extension Hybrid QCNN - CNN Model Hybrid model Pure CNN model
+
+===== STREAM 40 =====
+U - Net (compare with YOLO) Pixel - level output is more refined More details are retained More suitable for small sample tasks The structure is lightweight and easy to expand
+
+===== STREAM 45 =====
+The sample size is small. Confused with other categories The impact of the split mask
+
+===== STREAM 46 =====
+U - Net Depth estimation Close to 1: further Close to 0: closer
+
+===== STREAM 49 =====
+Hybrid QCNN Model Dataset Image Files LabelMe Polygons Rasterize Mask Segmentation ID: Background = 0 (Black) Small Book = 1 (Blue) Mid Book = 2 (Green) Big Book = 3 (Red) Classification ID: Small Book = 0 Mid Book = 1 Big Book = 2
+
+===== STREAM 50 =====
+Hybrid QCNN Model Model stride - 2 convolution PQC is also known as Ansatz Broadcasting torch.cat ConvTranspose2d Linear Layer ReLU Linear Layer (dominant box prediction)
+
+===== STREAM 56 =====
+Hybrid QCNN Model Train Based on pixel ID distribution, weights are applied to each segment IDs Loss Function: Usage of CrossEntropy Total Loss = 0.4*ClassLoss + 0.6*SegmentationLoss 40 Epoch Forward < - > Backward: Usage of quantum circuit Getting gradient of parameters is contemporary named problem
+
+===== STREAM 57 =====
+Hybrid QCNN Model Train Spec: 128 x 128 image 4 Segmentations, 3 Classifications 4 qubit circuit, 16 parameters 40 epochs, at least two gradient calculations in each epoch When it comes to uploading to IBM quantum platform, it sends each QCs for 16 parameters x 2(gradient calculation) x 40 epoch= 1280 jobs IBM platform cuts out long - large waiting queues, since it would occupy the platform several days. (This kind of trouble often happens in QCNN field)
+
+===== STREAM 58 =====
+Hybrid QCNN Model Train This is why prior works are mostly done for classification, not for segmentation. However, to extract the quantum potential, we use: Qiskit - aer Qiskit primitives, backend When it comes to uploading to IBM quantum platform, it sends each QCs for 16 parameters x 2(gradient calculation) x 40 epoch= 1280 jobs IBM platform cuts out long - large waiting queues, since it would take several days.
+
+===== STREAM 59 =====
+Hybrid QCNN Model Results Evaluation: Sample Batch of 30 Images - >Prediction of pixel and class Classification accuracy: 90.00% Pixel accuracy: 94.36% Mean IoU : 70.56% <Prediction Sample Images>
+
+===== STREAM 62 =====
+Results Analysis Comparison Reasoning Further Works
+
+===== STREAM 64 =====
+Comparison Classical CNN - Only model stride - 2 convolution Linear ReLU (equivalent size of quantum layer) Broadcasting torch.cat ConvTranspose2d Linear Layer ReLU Linear Layer (dominant box prediction)
+
+===== STREAM 71 =====
+Comparison Hybrid QCNN model VS Classical CNN - Only model
+
+===== STREAM 74 =====
+Comparison Hybrid QCNN model VS Classical CNN - Only model
+
+===== STREAM 76 =====
+Comparison Hybrid QCNN model VS Classical CNN - Only model
+
+===== STREAM 79 =====
+Comparison Hybrid QCNN model VS Classical CNN - Only model <Exact Ratio> ID : number of classes 0(small): 4.33 1(mid): 3 2(big): 2.66 /10
+
+===== STREAM 81 =====
+Comparison Hybrid QCNN model VS Classical CNN - Only model {0: Background / 1: Small book / 2: Mid book / 3: Big book}
+
+===== STREAM 84 =====
+Comparison Hybrid QCNN model VS Classical CNN - Only model <Same Evaluation> Sample Batch of 30 Images - >Prediction of pixel and class Classification accuracy: 90.00% Pixel accuracy: 94.36% Mean IoU: 70.56% Classification accuracy: 56.67% Pixel accuracy: 80.79% Mean IoU: 39.18%
+
+===== STREAM 89 =====
+Reasoning <Improvements> 1. Quantum layer has introduced remarkable improvement in segmentation 2. Also, quantum layer has introduced remarkable improvement in classification 3. Segmentation loss has decreased drastically 4. IoU (Intersection over Union) has almost doubled in hybrid QCNN model
+
+===== STREAM 90 =====
+Reasoning <Problems> 1. Trend of classification loss during the training are almost equivalent 2. Each weights still need to be adjusted to get higher accuracy, but also suppressing catching noises 3. Hybrid QCNN is much slower than the other, at this moment 4. In some trials, classification was so erronous that it caught non - existing class in the object image, and did not match with segmentation
+
+===== STREAM 92 =====
+Further Works 1. Implementation on Real Hardware Only accessible by cloud Average waiting queue of minutes~hours (or even days...) If iterative access at once is possible, this work would be applicable 2. Speed up Assume QCNN Layer parameters depend on time, imaginary time evolution could substitute iterative waiting queue Then, this might show meaningful speed ups 1. Point Cloud Extraction with Depth Estimation As seen by YOLO, U - Net, the above mentioned jobs could be possible 2. PCA on the Object for Pose Estimation Pipelining to PCA and object posing, this could be a complete process containing quantum computation
+
+===== STREAM 95 =====
+Discussion 1. YOLO, U - Net CNNs Trying out existing classical models to experimentally observe image segmentation and classification Comparison of classical models leading image segmenting CNN to be flexible from modification Extension of classical CNN model to Quantum model 1. Hybrid QCNN - CNN model Built up a model that has both CNN and QCNN conducting segmentation and classification Quantum layer includes feature encoding, as well as parametrized circuit to introduce non - linear characteristics to classical model resulting in better performance on segmentation 2. Further Proposals Iterative circuit measurement requires huge amount of waiting time on IBM platform queue, this problem could be further handled (or might be mitigated by technology develpment) Since we have shown that applying quantum layer results in better accuracy, this method could be extended to complex segmentation jobs
+
+===== STREAM 96 =====
+References 1. Long, C., Huang, M., Ye, X., Futamura, Y., & Sakurai, T. (2025). Hybrid quantum - classical - quantum convolutional neural networks. Scientific Reports, 15, 31780. https://doi.org/10.1038/s41598 - 025 - 13417 - 1 1. Lu, Q., Lin, Y., & Yin, L. (2025). Quantum - enhanced deep lightweight object detection model for power tower base occlusion detec tion. Engineering Applications of Artificial Intelligence, 160, 111972. https://doi.org/10.1016/j.engappai.2025.111972 1. Russo, L., Mauro, F., Memar, B., Sebastianelli, A., Ullo, S. L., & Gamba, P. (2025). A quantum - assisted Attention U - Net for buil ding segmentation over Tunis using Sentinel - 1 data. arXiv:2507.13852. https://arxiv.org/abs/2507.13852
